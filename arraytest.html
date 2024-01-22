@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* an array test that turned into me doing the whole thing */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      font-size: 3rem;
+    }
+    
+    .container {
+      position: relative;
+      width: 1000px;
+      margin: auto;
+      background-color: yellow;
+    }
+    .container div {
+      height: 300px;
+      width: 1000px;
+      background-color: red;
+      
+    }
+
+    .container button {
+      position: absolute;
+      top: 50%;
+    }
+
+    #left {
+      position: absolute;
+      left: 0;
+
+    }
+
+    #right {
+      position: absolute;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button id="left"><<<</button>
+    <button id="right">>>></button>
+    <div class="firstDiv"></div>
+    <div class="firstDiv">2nd div</div>
+    <div class="firstDiv">3rd div</div>
+    <div class="firstDiv">4th div</div>
+  </div>
+  
+  <script>
+    var leftButton = document.getElementById("left");
+    var rightButton = document.getElementById("right");
+
+    leftButton.addEventListener("click", function () {
+      plusSlides(-1)       
+    })
+    rightButton.addEventListener("click", function () {
+      plusSlides(1)       
+    })
+
+    var slideIndex = 0
+    
+    /* IMPORTANT. the variable n does not have to match
+    the variable that's inside of showSlides(). w3
+    had these both as n and it threw me off. as you
+    can see x works fine in here. the relationship
+    must come from being inside the () when calling
+    the function what variable is in the () needs to correspond to 
+    that variable inside the function. anything that goes into the () just
+    has to be inside showSlides() in order to go in */
+    function plusSlides (n) {
+      showSlides(slideIndex += n)     
+    }
+
+    let slides = document.getElementsByClassName("firstDiv");
+    
+    function showSlides(x) {
+     
+     var slides = document.querySelectorAll(".firstDiv");
+     if (slideIndex < 0) {
+      slideIndex = slides.length-1;      
+     }
+     /* VERYIMPORTANT!  this was written like this before
+     i would get to the end of the array and when it
+     would go back to 0 it would give an error. the code
+     was written like this:   else if (slideIndex > slides.length) {
+      slideIndex = 0;
+     } it did not have the equals*/
+     
+     else if (slideIndex >= slides.length) {
+      slideIndex = 0;
+     }
+     /* else (slideIndex + x); */
+     
+     for(i = 0; i < slides.length; i++) {
+      slides[i].style.backgroundColor = "red"
+     }
+     slides[slideIndex].style.backgroundColor = "yellow" 
+     console.log(slideIndex)
+    } 
+    
+    /* IMPORTANT: see important above 
+    
+    
+    
+    */
+   
+    showSlides(slideIndex)
+    
+
+   
+  
+      
+  
+
+ 
+ 
+  </script>
+
+</body>
+</html>

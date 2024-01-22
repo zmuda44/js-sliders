@@ -1,0 +1,33 @@
+always keep in mind on the css that 
+you can control the width of an image to a container by setting image 100%. you can control the height as well,
+you just need to watch out for stretching.
+
+i am trying to create this so that orange box takes up the same height and width as the parent ofall 
+images.  i think i would set the container height and width properties and then use overflow: hidden
+problem is with that is that i also want the height and width of the container to be the bounding box.
+i want anything aftewards to behave like that's the block element. i dont want the image sticking out 
+the bottom in any way. maybe some sort of background0clip? maybe learn mroe about cover position. can 
+you do that with images or just background images?
+
+have the original code with the images already in it in your one notes
+
+js behavior:
+starts out with slideIndex set to 1 and then
+immediately calls the function showSlides. this means 
+that on page load this function immediately runs. 
+is that what this is doing? can you call a fucntion before
+you define it?
+
+try writing this with event listeners. i think the reason
+they dont write the entire function under the button click
+(this is what you had been doing before, but there
+was only 1 button.  this time a button is an input (variable) in a larger equation)
+
+the button gives a button to the function showSlides originally. this is a dyanmic variable to the bigger equation show showSlides
+
+show slides function declars the variable i (i wonder if you need to do this?)
+they also set the if statements outside the for loop (before it)
+
+the way it gets bound is through defining slides with something
+plural (queryAll or elementS by class name)
+then reference the array with the slides index
